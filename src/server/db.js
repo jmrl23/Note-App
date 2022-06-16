@@ -24,6 +24,7 @@ module.exports = new Promise(async (resolve, reject) => {
 
     const UserSchema = mongoose.Schema({
       username: { type: String, index: true },
+      dateJoined: { type: Date, default: () => new Date() },
       auth: {
         username: { type: String, index: true },
         password: { type: String, required: true },
