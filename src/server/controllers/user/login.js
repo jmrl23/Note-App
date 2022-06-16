@@ -26,7 +26,7 @@ router
       return res.json({ error: 'empty field', document: null })
     }
 
-    username = username.trim()
+    username = username.trim().toLowerCase()
 
     try {
       const { model } = await require('../../db')
