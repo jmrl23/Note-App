@@ -14,7 +14,8 @@
     "url": "git+https://github.com/jmrl23/Note-App.git"
   },
   "author": "Jomariel Gaitera <jojogaitera@gmail.com>",
-  "license": "MIT",
+  "private": true,
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/jmrl23/Note-App/issues"
   },
