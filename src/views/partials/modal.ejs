@@ -1,0 +1,134 @@
+<div class="fixed bg-black/25 w-screen h-screen z-10 overflow-hidden left-0 top-0 items-center justify-center hidden" id="modal-wrapper">
+  <div class="container m-4 w-[calc(100%-2rem)]" id="modal-container">
+    <!-- error -->
+    <div class="bg-white shadow-lg rounded-lg hidden" data-content="error">
+      <div class="text-red-400 text-6xl text-center pt-2">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div>
+        <div class="text-center p-4 pt-0">
+          <p class="text-red-400 font-bold text-3xl">
+            Error
+          </p>
+          <p class="mt-2" data-action="message">
+            An error occurs
+          </p>
+        </div>
+        <div class="flex">
+          <button class="block bg-red-400 hover:bg-red-500 transition-all duration-75 text-white py-4 w-full rounded-b-lg" type="button" data-action="close-modal">
+            Dismiss
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- success -->
+    <div class="bg-white shadow-lg rounded-lg hidden" data-content="success">
+      <div class="text-green-500 text-6xl text-center pt-2">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div>
+        <div class="text-center p-4 pt-0">
+          <p class="text-green-500 font-bold text-3xl">
+            Success
+          </p>
+          <p class="mt-2" data-action="message">
+            An error occurs
+          </p>
+        </div>
+        <div class="flex">
+          <button class="block bg-green-500 hover:bg-green-600 transition-all duration-75 text-white py-4 w-full rounded-b-lg" type="button" data-action="close-modal">
+            Okay
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Confirm -->
+    <div class="bg-white shadow-lg rounded-lg hidden" data-content="confirm">
+      <div class="text-blue-500 text-6xl text-center pt-2">
+        <i class="fa-solid fa-question"></i>
+      </div>
+      <div>
+        <div class="text-center p-4 pt-0">
+          <p class="text-blue-500 font-bold text-3xl">
+            Confirm
+          </p>
+          <p class="mt-2" data-action="message">
+            Are you sure you want to execute this action?
+          </p>
+        </div>
+        <div class="flex">
+          <button class="block bg-gray-500 hover:bg-gray-600 transition-all duration-75 text-white py-4 w-full rounded-bl-lg" type="button" data-action="close-modal">
+            Cancel
+          </button>
+          <button class="block bg-blue-500 hover:bg-blue-600 transition-all duration-75 text-white py-4 w-full rounded-br-lg" type="button" data-action="action-confirm">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const modalWrapper = document.querySelector('#modal-wrapper')
+  const modalContainer = modalWrapper.querySelector('#modal-container')
+  const modals = modalContainer.children
+
+  function closeModal() {
+    for (const modal of modals) {
+      modal.classList.add('hidden')
+      modalWrapper.classList.remove('flex')
+      modalWrapper.classList.add('hidden')
+    }
+  }
+
+  function useModal(content) {
+    closeModal()
+    for (const modal of modals) {
+      if (modal.dataset.content === content) {
+        modal.classList.remove('hidden')
+        modalWrapper.classList.remove('hidden')
+        modalWrapper.classList.add('flex')
+        return modal
+      }
+    }
+  }
+
+  function modalError(message) {
+    const modal = useModal('error')
+    modal.querySelector('p[data-action=message]').innerText = message
+  }
+
+  function modalSuccess(message) {
+    const modal = useModal('success')
+    modal.querySelector('p[data-action=message]').innerText = message
+  }
+
+  let previousConfirmListener = null
+  function modalConfirm(message, callbackOnConfirm = function () {}) {
+    const modal = useModal('confirm')
+    const confirmBtn = modal.querySelector('button[data-action="confirm-action"]')
+    modal.querySelector('p[data-action=message]').innerText = message
+    if (previousConfirmListener !== null) {
+      confirmBtn.removeEventListener('click', previousConfirmListener)
+    }
+    confirmBtn.addEventListener('click', callbackOnConfirm)
+    previousConfirmListener = callbackOnConfirm
+  }
+
+  for (const closeBtn of modalContainer.querySelectorAll('button[data-action="close-modal"]')) {
+    closeBtn.addEventListener('click', () => closeModal())
+  }
+  modalWrapper.addEventListener('click', e => {
+    if (e.target === modalWrapper) {
+      closeModal()
+    }
+  })
+  modalContainer.addEventListener('click', e => {
+    if (e.target === modalContainer) {
+      closeModal()
+    }
+  })
+
+</script>

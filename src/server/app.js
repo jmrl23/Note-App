@@ -10,7 +10,10 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/../views')
 
 app.use(
-  express.static(__dirname + '/../public'),
+  express.static(__dirname + '/../public', {
+    maxAge: process.env.NODE_ENV === 'production' ? 
+    31536000 : 0
+  }),
   express.urlencoded({ extended: false }),
   express.json(),
   require('./session'),

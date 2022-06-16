@@ -1,1 +1,49 @@
-<!-- login view for the application -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="h-screen">
+  <div class="container h-full flex items-center">
+    <form class="w-full mx-4">
+      <div class="mb-4">
+        <img class="block w-[150px] h-[150px] mx-auto" src="/assets/image/banner-login.svg" alt="Banner">
+        <p class="text-center font-bold text-2xl mt-4 text-blue-500">
+          Learning is better if you take some notes
+        </p>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-4 pt-2">
+        <div class="my-2">
+          <label class="pb-2" for="username">Username</label>
+          <input class="px-4 py-2 block bg-gray-100 w-full rounded-md focus:ring-blue-500/50 focus:ring-2" type="text" name="username" id="username">
+        </div>
+        <div class="my-2">
+          <label class="pb-2" for="password">Password</label>
+          <input class="px-4 py-2 block bg-gray-100 w-full rounded-md focus:ring-blue-500/50 focus:ring-2" type="password" name="password" id="password">
+        </div>
+        <div class="flex gap-x-2 items-center mt-4">
+          <input type="checkbox" id="show-password">
+          <label for="show-password">Show password</label>
+        </div>
+        <button class="bg-blue-500 text-white rounded-md block w-full mt-4 py-4 shadow-md hover:bg-blue-600 transition-background duration-75 text-lg" type="submit">
+          Sign In
+        </button>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-4 mt-4">
+        <p>
+          Don't have an account? 
+          <a class="bg-pink-400 text-white px-4 py-2 rounded-md ml-2 shadow-md hover:bg-pink-500 transition-all duration-75" href="/user/register">
+            Create
+          </a>
+        </p>
+      </div>
+    </form>
+  </div>
+  <%- include('partials/modal') %>
+  <%- include('partials/dependencies') %>
+  <script src="/js/login.js"></script>
+</body>
+</html>
