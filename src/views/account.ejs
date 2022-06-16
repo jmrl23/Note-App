@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="h-screen">
+
+  <div class="container">
+
+    <header class="shadow-md p-4 flex h-20 items-center bg-white justify-between gap-x-4 sticky left-0 top-0">
+      <a class="flex bg-blue-500 text-white shadow-md rounded-lg p-2 items-center text-lg gap-x-2 active:bg-blue-600 transition-all duration-75" href="/">
+        <i class="fa-solid fa-caret-left"></i>
+        <span>Return</span>
+      </a>
+    </header>
+
+    <form class="p-4 bg-white rounded-lg shadow-md mt-4 mx-4">
+      <h2 class="text-2xl font-bold">
+        Change information
+      </h2>
+      <p class="text-sm">
+        Date joined: <%= dateJoined -%>
+      </p>
+      <div class="my-2">
+        <label class="pb-2" for="password">Username</label>
+        <input class="px-4 py-2 block bg-gray-100 w-full rounded-md focus:ring-blue-500/50 focus:ring-2" type="text" id="username" value="<%=document.username%>" disabled>
+      </div>
+      <div class="my-2">
+        <label class="pb-2" for="current-password">Current password</label>
+        <input class="px-4 py-2 block bg-gray-100 w-full rounded-md focus:ring-blue-500/50 focus:ring-2" type="password" name="password" id="current-password">
+      </div>
+      <div class="my-2">
+        <label class="pb-2" for="new-password">New password</label>
+        <input class="px-4 py-2 block bg-gray-100 w-full rounded-md focus:ring-blue-500/50 focus:ring-2" type="password" name="password" id="new-password">
+      </div>
+      <div class="flex gap-x-2 items-center mt-4">
+        <input type="checkbox" id="show-password">
+        <label for="show-password">Show password</label>
+      </div>
+      <button class="bg-blue-500 text-white rounded-md block w-full mt-4 py-4 shadow-md active:bg-blue-600 transition-background duration-75 text-lg" type="submit">
+        Confirm
+      </button>
+    </form>
+  </div>
+
+  <%- include('partials/modal') %>
+  <%- include('partials/dependencies') %>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="/js/account.js"></script>
+</body>
+</html>

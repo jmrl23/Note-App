@@ -22,7 +22,7 @@
       return modalError('still in process')
     }
     const username = this.username.value.trim()
-    const password = this.password.value.trim()
+    const password = this.password.value
     if (!username || !password) {
       return modalError('empty field')
     }
