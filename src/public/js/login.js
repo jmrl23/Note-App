@@ -5,7 +5,6 @@
 
   form.addEventListener('submit', submitForm)
   
-  // show password
   checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
       return form.password.type = 'text'
@@ -14,8 +13,6 @@
   })
 
   let hasProcess = false
-
-  // on form submit
   async function submitForm(e) {
     e.preventDefault()
     if (hasProcess) {

@@ -7,38 +7,36 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="h-screen">
-
   <div class="container">
-
-
     <header class="shadow-md p-4 flex h-20 items-center justify-between gap-x-4 sticky left-0 top-0 bg-white">
       <div class="flex bg-gray-200 rounded-lg p-2 w-10/12 items-center text-lg">
         <i class="fa-solid fa-magnifying-glass px-2 mr-2"></i>
         <input class="bg-transparent w-full" type="text" id="search-input" placeholder="Search your notes">
       </div>
-      
       <button class="rounded-lg ring ring-slate-500 w-2/12 h-11 active:bg-slate-500 active:text-white transition-all duration-75" type="button" id="user-btn">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bars"></i>
       </button>
-
       <div class="bg-white py-4 rounded-lg shadow-md w-56" hidden id="user-context-menu">
+        <a class="flex px-4 py-2 items-center gap-x-4 w-full active:bg-gray-100" href="/note/create">
+          <i class="fa-solid fa-plus"></i>
+          <span>
+            Add New Note
+          </span>
+        </a>
         <a class="flex px-4 py-2 items-center gap-x-4 w-full active:bg-gray-100" href="/user/account">
           <i class="fa-solid fa-gear"></i>
           <span>
             Account Settings
           </span>
         </a>
-        <button class="flex px-4 py-2 items-center gap-x-4 w-full active:bg-gray-100" type="button" id="user-action-signout">
+        <button class="flex px-4 py-2 items-center gap-x-4 w-full active:bg-gray-100 text-red-500" type="button" id="user-action-signout">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
           <span>
             Sign Out
           </span>
         </button>
       </div>
-
     </header>
-
-
   </div>
 
   <%- include('partials/modal') %>

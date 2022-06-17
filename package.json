@@ -4,7 +4,7 @@
   "description": "Note application",
   "main": "src/server/index.js",
   "scripts": {
-    "start": "node.",
+    "start": "node .",
     "start:dev": "node src/.sandbox/start.js",
     "start:dev:auto": "npx nodemon src/.sandbox/start.js",
     "tw:watch": "npx tailwindcss -i src/.sandbox/css/tailwind.css -o src/public/css/style.css --watch --minify"
