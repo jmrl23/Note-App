@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/quill.snow.css">
+</head>
+<body class="h-screen">
+  <div class="container">
+    <header class="shadow-md p-4 flex h-20 items-center bg-white justify-between gap-x-4 sticky left-0 top-0">
+      <a class="flex bg-blue-500 text-white shadow-md rounded-lg p-2 items-center text-lg gap-x-2 active:bg-blue-600 transition-all duration-75" href="/">
+        <i class="fa-solid fa-caret-left"></i>
+        <span>Return</span>
+      </a>
+    </header>
+
+    <div class="bg-white p-4 rounded-lg shadow-md mt-4 h-[calc(100vh-7rem)] flex flex-col mx-4 gap-y-4">
+      <input class="px-4 py-2 block bg-gray-100 w-full rounded-md focus:ring-blue-500/50 focus:ring-2" type="text" name="note-title" id="note-title" placeholder="Title">
+      <div class="grow rounded-md max-h-[calc(100vh-16rem)] flex flex-col">
+        <div id="editor"></div>
+      </div>
+      <div class="flex justify-end">
+        <button class="flex bg-blue-500 text-white shadow-md rounded-lg px-4 py-2 items-center text-lg gap-x-2 active:bg-blue-600 transition-all duration-75" type="button">
+          <i class="fa-solid fa-floppy-disk"></i>
+          <p>Save</p>
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <%- include('partials/modal') %>
+  <%- include('partials/dependencies') %>
+  <script src="/js/quill.min.js"></script>
+  <script src="/js/create-note.js"></script>
+</body>
+</html>

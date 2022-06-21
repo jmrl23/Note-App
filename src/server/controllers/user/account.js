@@ -11,7 +11,6 @@ router
       const { user } = model
       const document = await user.findById(req.session.userId)
       const dateJoined = require('moment')(document.dateJoined).format('YYYY-MM-DD')
-      console.log(dateJoined)
       res.render('account', {
         document,
         dateJoined
