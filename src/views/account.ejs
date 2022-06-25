@@ -7,19 +7,16 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="h-screen">
-
   <div class="container">
-
     <header class="shadow-md p-4 flex h-20 items-center bg-white justify-between gap-x-4 sticky left-0 top-0">
       <a class="flex bg-blue-500 text-white shadow-md rounded-lg p-2 items-center text-lg gap-x-2 active:bg-blue-600 transition-all duration-75" href="/">
         <i class="fa-solid fa-caret-left"></i>
         <span>Return</span>
       </a>
     </header>
-
     <form class="p-4 bg-white rounded-lg shadow-md mt-4 mx-4">
       <h2 class="text-2xl font-bold">
-        Change information
+        Change Password
       </h2>
       <p class="text-sm">
         Date joined: <%= dateJoined -%>
@@ -45,7 +42,6 @@
       </button>
     </form>
   </div>
-
   <%- include('partials/modal') %>
   <%- include('partials/dependencies') %>
   <script src="https://unpkg.com/@popperjs/core@2"></script>

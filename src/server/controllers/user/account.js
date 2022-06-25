@@ -1,3 +1,8 @@
+/**
+ * Account controller, modify user informatio such as 
+ * password.
+ */
+
 const router = require('express').Router()
 
 router

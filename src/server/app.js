@@ -15,10 +15,10 @@ app.use(
     maxAge: process.env.NODE_ENV === 'production' ? 
     31536000 : 0
   }),
-  express.urlencoded({ extended: false }),
   express.json(),
-  require('./auth'),
+  express.urlencoded({ extended: false }),
   require('./session'),
+  require('./auth'),
   require('./minify'),
   require('./controllers')
 )
