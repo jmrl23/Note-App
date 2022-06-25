@@ -17,6 +17,7 @@ app.use(
   }),
   express.urlencoded({ extended: false }),
   express.json(),
+  require('./auth'),
   require('./session'),
   require('./minify'),
   require('./controllers')
