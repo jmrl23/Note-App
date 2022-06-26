@@ -1,4 +1,6 @@
 ~function() {
+  const submitButton = document.querySelector('#submit-btn')
+  const deleteButton = document.querySelector('#delete-btn')
   const id = document.querySelector('#note-id').value
   const noteTitle = document.querySelector('#note-title')
   const editor = new Quill('#editor', {
@@ -14,6 +16,7 @@
     placeholder: 'Aa'
   })
 
+  // fetch note data
   async function fetchData(id) {
     try {
       const response = await fetch('/note/fetch/' + id)
@@ -29,9 +32,6 @@
     }
   }
   fetchData(id)
-
-  const submitButton = document.querySelector('#submit-btn')
-  const deleteButton = document.querySelector('#delete-btn')
 
   deleteButton.addEventListener('click', () => {
     modalConfirm('Delete this note?', async () => {

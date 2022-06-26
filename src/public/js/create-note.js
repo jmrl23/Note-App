@@ -1,4 +1,6 @@
 ~function () {
+  const titleInput = document.querySelector('#note-title')
+  const submitButton = document.querySelector('#submit-btn')
   const editor = new Quill('#editor', {
     modules: {
       toolbar: [
@@ -11,9 +13,6 @@
     theme: 'snow',
     placeholder: 'Aa'
   })
-
-  const titleInput = document.querySelector('#note-title')
-  const submitButton = document.querySelector('#submit-btn')
 
   submitButton.addEventListener('click', createNewNote)
   
@@ -32,9 +31,6 @@
         return modalError(error)
       }
       window.location = '/'
-      setTimeout(() => {
-        window.location = '/'
-      }, 1000)
     } catch (error) {
       modalError(error.message)
     }
