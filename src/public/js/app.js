@@ -33,7 +33,7 @@
       if (error) {
         return modalError(error)
       }
-      window.location.reload()
+      window.location = '/'
     } catch (error) {
       modalError(error.message)
     }
