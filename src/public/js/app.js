@@ -62,6 +62,31 @@
     return container
   }
 
+  const searchInput = document.querySelector('#search-input')
+
+  searchInput.addEventListener('keyup', filterNotes)
+
+  function filterNotes(e) {
+    const input = e.target.value.trim()
+    const notes = document.querySelectorAll('#main-container div')
+    
+    for (const note of notes) {
+      note.classList.remove('hidden')
+    }
+
+    if (input.length < 1) {
+      return
+    }
+
+    for (const note of notes) {
+      note.classList.add('hidden')
+      if (note.innerText.includes(input)) {
+        note.classList.remove('hidden')
+      }
+    }
+
+  }
+
   try {
     const response = await fetch('/note/fetch')
     const { error, documents } = await response.json()

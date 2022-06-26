@@ -24,7 +24,7 @@ router
       const { model } = await require('../../db')
       const { user } = model
       const target = await user.findById(req.session.userId).populate('notes')
-      const document = target.notes.find(note => note._id === req.params.noteId)
+      const document = target.notes.find(note => note._id.toString() === req.params.noteId)
       res.json({ error: null, document })
     } catch (error) {
       res.status(500).json({ error: error.message, document: null })

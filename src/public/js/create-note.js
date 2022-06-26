@@ -16,15 +16,10 @@
   const submitButton = document.querySelector('#submit-btn')
 
   submitButton.addEventListener('click', createNewNote)
-
-  let isCreated = false
-
+  
   async function createNewNote() {
     const title = titleInput.value.trim() || 'Untitled'
     const content = JSON.stringify(editor.getContents())
-    if (isCreated) {
-      return
-    }
     console.log(JSON.stringify({ title, content }))
     try {
       const response = await fetch('/note/create', {
@@ -36,8 +31,7 @@
       if (error) {
         return modalError(error)
       }
-      modalSuccess('Note Created')
-      isCreated = true
+      window.location = '/'
       setTimeout(() => {
         window.location = '/'
       }, 1000)

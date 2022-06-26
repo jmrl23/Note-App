@@ -23,7 +23,7 @@ router
       const { user, note } = model
       const newNote = await note({ title, content }).save()
       const currentUser = await user.findById(req.session.userId)
-      currentUser.notes.push(newNote)
+      currentUser.notes.unshift(newNote)
       await currentUser.save()
       res.json({ error: null })
     } catch (error) {

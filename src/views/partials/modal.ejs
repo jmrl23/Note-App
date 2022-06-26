@@ -106,14 +106,16 @@
   }
 
   let previousConfirmListener = null
-  function modalConfirm(message, callbackOnConfirm = function () {}) {
+  function modalConfirm(message, callbackOnConfirm) {
     const modal = useModal('confirm')
-    const confirmBtn = modal.querySelector('button[data-action="confirm-action"]')
+    const confirmBtn = modal.querySelector('button[data-action="action-confirm"]')
     modal.querySelector('p[data-action=message]').innerText = message
     if (previousConfirmListener !== null) {
       confirmBtn.removeEventListener('click', previousConfirmListener)
     }
-    confirmBtn.addEventListener('click', callbackOnConfirm)
+    if (typeof callbackOnConfirm === 'function') {
+      confirmBtn.addEventListener('click', callbackOnConfirm)
+    }
     previousConfirmListener = callbackOnConfirm
   }
 
