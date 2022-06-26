@@ -24,6 +24,10 @@ router
       return next()
     }
     const noteId = req.params.noteId
+    let { title, content } = req.body
+    if (!title) {
+      title = 'Untitled'
+    }
     try {
       const { model } = await require('../../db')
       const { user, note } = model
@@ -31,7 +35,6 @@ router
       if (!currentUser.notes.find(note => note.toString() === noteId)) {
         return res.json({ error: 'cannot find note' })
       }
-      const { title, content } = req.body
       const targetNote = await note.findById(noteId)
       targetNote.title = title
       targetNote.content = content
