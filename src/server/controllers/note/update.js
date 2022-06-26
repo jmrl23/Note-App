@@ -35,6 +35,7 @@ router
       const targetNote = await note.findById(noteId)
       targetNote.title = title
       targetNote.content = content
+      targetNote.lastUpdated = new Date()
       await targetNote.save()
       res.json({ error: null })
     } catch(error) {
