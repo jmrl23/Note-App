@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 router
-
+  // www.example.com/note/create
   .get('/create', (req, res, next) => {
     if (!req.session.userId) {
       return next()

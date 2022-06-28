@@ -9,7 +9,7 @@ router
     res.render('login')
   })
 
-  .post('/login', async (req, res, next) => {
+  .post('/login', async (req, res) => {
 
     if (req.session.userId) {
       return res.json({ error: 'already logged-in', document: null })
