@@ -15,7 +15,6 @@ router
     }
     const { title, content } = req.body
     if (!title || !content) {
-      console.log(title, content, req.body)
       return res.json({ error: 'empty field' })
     }
     try {

@@ -2,10 +2,10 @@
 
   const form = document.querySelector('form')
   const checkbox = form.querySelector('#show-password')
+  let hasProcess = false
 
   form.addEventListener('submit', submitForm)
   
-  // show password
   checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
       return form.password.type = 'text'
@@ -13,9 +13,6 @@
     form.password.type = 'password'
   })
 
-  let hasProcess = false
-
-  // on form submit
   async function submitForm(e) {
     e.preventDefault()
     if (hasProcess) {

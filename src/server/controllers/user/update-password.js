@@ -33,11 +33,8 @@ router
       }
 
       document.auth.password = newPassword
-
       await document.save()
-
       res.json({ error: null })
-
     } catch (error) {
       res.json({ error: error.message })
     }

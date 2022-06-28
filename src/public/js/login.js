@@ -2,10 +2,10 @@
 
   const form = document.querySelector('form')
   const checkbox = form.querySelector('#show-password')
+  let hasProcess = false
 
   form.addEventListener('submit', submitForm)
 
-  // show password if checkbox is checked
   checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
       return form.password.type = 'text'
@@ -13,10 +13,8 @@
     form.password.type = 'password'
   })
 
-  let hasProcess = false
   async function submitForm(e) {
     e.preventDefault()
-    // cancel action if previous action is still on-going
     if (hasProcess) {
       return modalError('still in process')
     }

@@ -15,6 +15,9 @@
       }
     ]
   })
+  const signoutBtn = document.querySelector('#user-action-signout')
+  const searchInput = document.querySelector('#search-input')
+
   function toggleUserContextMenu() {
     if (userBtnContextMenu.hasAttribute('hidden')) {
       userBtnContextMenu.removeAttribute('hidden')
@@ -23,8 +26,6 @@
     userBtnContextMenu.setAttribute('hidden', '')
   }
   userBtn.addEventListener('click', toggleUserContextMenu)
-
-  const signoutBtn = document.querySelector('#user-action-signout')
 
   signoutBtn.addEventListener('click', async function () {
     try {
@@ -61,8 +62,6 @@
     }
     return container
   }
-
-  const searchInput = document.querySelector('#search-input')
 
   searchInput.addEventListener('keyup', filterNotes)
 

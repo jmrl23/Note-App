@@ -38,7 +38,6 @@
     }
   }
 
-  // show password if checkbox is checked
   checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
       return form['new-password'].type = 'text'

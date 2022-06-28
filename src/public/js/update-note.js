@@ -16,7 +16,6 @@
     placeholder: 'Aa'
   })
 
-  // fetch note data
   async function fetchData(id) {
     try {
       const response = await fetch('/note/fetch/' + id)
