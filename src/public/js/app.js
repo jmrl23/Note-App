@@ -79,7 +79,7 @@
 
     for (const note of notes) {
       note.classList.add('hidden')
-      if (note.innerText.includes(input)) {
+      if (note.innerText.toLowerCase().includes(input.toLowerCase())) {
         note.classList.remove('hidden')
       }
     }
